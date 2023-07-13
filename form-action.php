@@ -13,6 +13,6 @@ if (!empty($_POST['question']) && !empty($_POST['name'])) {
 	$fileContent = "WhatsApp number = ".$phone;
 }
 
-mail("kayakingfuerteventura@gmail.com, kl@hl2b.ru", "Message from Free Diving FV", $fileContent, "From: kayakingfuerteventura@gmail.com");
+mail("kayakingfuerteventura@gmail.com, kl@hl2b.ru", "Message from Scuba diving FV", $fileContent, "From: kayakingfuerteventura@gmail.com");
 
 ?>
