@@ -384,8 +384,8 @@ main {
 
 .vertical_card__price {
   font-weight: 900;
-  font-size: 27px;
-  line-height: 36px;
+  font-size: 25px;
+  line-height: 34px;
   text-transform: uppercase;
   -webkit-font-feature-settings: 'pnum' on, 'lnum' on;
           font-feature-settings: 'pnum' on, 'lnum' on;
@@ -532,7 +532,7 @@ main {
 
 .horizontal_card__item_title {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 30px;
   -webkit-font-feature-settings: 'pnum' on, 'lnum' on;
           font-feature-settings: 'pnum' on, 'lnum' on;
@@ -541,7 +541,7 @@ main {
 
 .horizontal_card__item_text {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 30px;
   -webkit-font-feature-settings: 'pnum' on, 'lnum' on;
           font-feature-settings: 'pnum' on, 'lnum' on;
