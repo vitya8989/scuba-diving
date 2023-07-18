@@ -358,6 +358,11 @@ main {
   flex: 1 1 auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.vertical_card__prices.this--multy .vertical_card__price span {
+  white-space: nowrap;
+  margin-left: 10px;
 }
 .vertical_card__prices.this--multy .vertical_card__price_old {
   width: 70px;
@@ -373,12 +378,16 @@ main {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    align-items: flex-start;
   }
   .vertical_card__prices.this--multy {
     align-items: flex-end;
   }
   .vertical_card__prices.this--multy .vertical_card__price_old {
     margin-bottom: 7px;
+  }
+  .vertical_card__prices.this--multy .vertical_card__price span {
+    margin-left: 0;
   }
 }
 
@@ -2362,7 +2371,7 @@ main {
 
 @media (max-width: 1199px) {
   .vertical_card__img_text {
-    max-width: 230px;
+    max-width: 280px;
     top: 10px;
     left: 10px;
     font-size: 24px;
