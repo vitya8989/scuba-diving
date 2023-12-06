@@ -56,7 +56,7 @@ headeMenuLinks.forEach(link => {
             behavior: 'smooth'
         });
     });
-});;
+});
 new Swiper('.why__slider', {
     speed: 400,
     slidesPerView: 1,
@@ -82,7 +82,7 @@ new Swiper('.why__slider', {
             slidesPerView: 3,
         },
     },
-});;
+});
 if (document.querySelector('.instructors__slider')) {
     const offerSlider = new Swiper('.instructors__slider', {
         effect: 'fade',
@@ -104,7 +104,7 @@ if (document.querySelector('.instructors__slider')) {
     window.addEventListener('DOMContentLoaded', () => {
         offerSlider.update();
     });
-};
+}
 new Swiper('.reviews__slider', {
     speed: 400,
     slidesPerView: 1,
@@ -125,7 +125,7 @@ new Swiper('.reviews__slider', {
             spaceBetween: 60,
         },
     },
-});;
+});
 const openPopupBtns = document.querySelectorAll('.js_open_popup');
 
 if (openPopupBtns.length > 0) {
@@ -173,7 +173,7 @@ if (openPopupBtns.length > 0) {
             valid = false;
         }
         if (valid) {
-            let response = await fetch('form-action.php', {
+            let response = await fetch('/form-action.php', {
                 method: 'POST',
                 body: new FormData(callbackForm)
             });
@@ -242,3 +242,57 @@ if (openVideoPopupBtns.length > 0) {
         }
     });
 };
+
+const headerBook = document.querySelector('.header__book');
+
+if (headerBook) {
+    headerBook.addEventListener('click', () => {
+        headerNav.classList.remove('show');
+        headerBurger.classList.remove('active');
+        document.body.classList.remove('this--overflow');
+    });
+}
+
+const turitopLinks = document.querySelectorAll('.js_turitop_link');
+
+if (turitopLinks.length) {
+    const turitopBlocks = document.querySelectorAll('.js_turitop_block');
+
+    turitopBlocks.forEach((block) => {
+
+        const cross = block.querySelector('.js_turitop_block_cross');
+
+        cross.addEventListener('click', () => {
+            block.style.maxHeight = 0;
+        });
+    });
+
+    turitopLinks.forEach(link => {
+
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            turitopBlocks.forEach((block) => {
+               if (block.dataset.turitop === link.dataset.turitop) {
+                   block.style.maxHeight = `${block.scrollHeight}px`;
+                   setTimeout(() => {
+                       block.style.maxHeight = `none`;
+                   }, 400)
+               } else {
+                   block.style.maxHeight = 0;
+               }
+            });
+            setTimeout(() => {
+                let href = this.getAttribute('href').substring(1);
+                const scrollTarget = document.getElementById(href);
+                let topOffset = header.offsetHeight;
+                const elementPosition = scrollTarget.getBoundingClientRect().top;
+                const offsetPosition = elementPosition - topOffset;
+                window.scrollBy({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }, 400);
+        });
+    });
+}
+
