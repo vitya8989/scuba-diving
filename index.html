@@ -143,8 +143,7 @@
                 </div>
             </div>
             <div class="main_top__links">
-                <a href="https://cdn.sstatic.net/Sites/ru/img/404.png" class="main_link"  download style="font-size: 30px;">download</a>
-
+                <a href="https://assets-global.website-files.com/657604e51f873c7d1107ef54/657893aada280d820e5b0c65_postcard_90.png" class="main_link"">download</a>
 
                 <script>
                     const mainLink = document.querySelector('.main_link');
@@ -154,14 +153,13 @@
                         e.preventDefault();
                         const mainLinkUrl = mainLink.href;
 
-
                         fetch(mainLinkUrl)
                             .then((response) => response.blob())
                             .then((myBlob) => {
                                 const url = window.URL.createObjectURL(myBlob);
                                 const link = document.createElement('a');
                                 link.href = url;
-                                link.setAttribute('download', 'test.png');
+                                link.setAttribute('download', 'test.png'); //тут имя для файла
                                 document.body.appendChild(link);
                                 link.click();
                             });
