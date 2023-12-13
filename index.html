@@ -143,24 +143,29 @@
                 </div>
             </div>
             <div class="main_top__links">
-                <a href="https://cdn.sstatic.net/Sites/ru/img/404.png" onclick="getImage()" download style="font-size: 30px;">download</a>
+                <a href="https://cdn.sstatic.net/Sites/ru/img/404.png" class="main_link"  download style="font-size: 30px;">download</a>
 
 
                 <script>
-                    function getImage () {
-                        const request = new XMLHttpRequest();
-                        request.open('GET', 'https://cdn.sstatic.net/Sites/ru/img/404.png', true);
-                        request.responseType = 'blob';
-                        request.onload = () => {
-                            const url = window.URL.createObjectURL(request.response);
-                            const link = document.createElement('a');
-                            link.href = url;
-                            link.setAttribute('download', 'test.png');
-                            document.body.appendChild(link);
-                            link.click();
-                        };
+                    const mainLink = document.querySelector('.main_link');
+                    mainLink.addEventListener('click', getImage);
 
-                        request.send();
+                    function getImage (e) {
+                        e.preventDefault();
+                        const mainLinkUrl = mainLink.href;
+
+
+                        fetch(mainLinkUrl)
+                            .then((response) => response.blob())
+                            .then((myBlob) => {
+                                const url = window.URL.createObjectURL(myBlob);
+                                const link = document.createElement('a');
+                                link.href = url;
+                                link.setAttribute('download', 'test.png');
+                                document.body.appendChild(link);
+                                link.click();
+                            });
+
                     }
                 </script>
                 <a href="#C14" class="main_top__link js_turitop_link btn this--prime" data-turitop="C14">Book with 10% discount</a>
