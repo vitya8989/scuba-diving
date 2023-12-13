@@ -143,6 +143,26 @@
                 </div>
             </div>
             <div class="main_top__links">
+                <a href="https://cdn.sstatic.net/Sites/ru/img/404.png" onclick="getImage()" download style="font-size: 30px;">download</a>
+
+
+                <script>
+                    function getImage () {
+                        const request = new XMLHttpRequest();
+                        request.open('GET', 'https://cdn.sstatic.net/Sites/ru/img/404.png', true);
+                        request.responseType = 'blob';
+                        request.onload = () => {
+                            const url = window.URL.createObjectURL(request.response);
+                            const link = document.createElement('a');
+                            link.href = url;
+                            link.setAttribute('download', 'test.png');
+                            document.body.appendChild(link);
+                            link.click();
+                        };
+
+                        request.send();
+                    }
+                </script>
                 <a href="#C14" class="main_top__link js_turitop_link btn this--prime" data-turitop="C14">Book with 10% discount</a>
                 <a href="#" class="main_top__link btn this--second js_open_popup">Ask a question</a>
             </div>
